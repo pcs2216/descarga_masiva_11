@@ -368,7 +368,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                            tasa = str(amount_tasa)
                         else:
                            tasa = str(0)
-                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','sale'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','sale'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                         if not tax_exist:
                             raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                         tax_ids.append(tax_exist.id)
@@ -551,7 +551,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                            tasa = str(amount_tasa)
                         else:
                            tasa = str(0)
-                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','purchase'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','purchase'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                         if not tax_exist:
                             raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                         tax_ids.append(tax_exist.id)
@@ -731,7 +731,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                            tasa = str(amount_tasa)
                         else:
                            tasa = str(0)
-                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','sale'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','sale'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                         if not tax_exist:
                             raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                         tax_ids.append(tax_exist.id)
@@ -915,7 +915,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                         tasa = str(amount_tasa)
                     else:
                         tasa = str(0)
-                    tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','purchase'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                    tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','purchase'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                     if not tax_exist:
                         raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                     tax_ids.append(tax_exist.id)
@@ -1076,7 +1076,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                         else:
                            amount_tasa = float(tax.get('@TasaOCuota'))*-100
                         tasa = str(amount_tasa)
-                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','sale'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','sale'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                         if not tax_exist:
                             raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                         tax_ids.append(tax_exist.id)
@@ -1224,7 +1224,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                         else:
                            amount_tasa = float(tax.get('@TasaOCuota'))*-100
                         tasa = str(amount_tasa)
-                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')),('type_tax_use','=','purchase'),('tipo_factor','=',tax.get('@TipoFactor')),('amount', '=', tasa)],limit=1)
+                        tax_exist = tax_obj.search([('impuesto','=',tax.get('@Impuesto')), ('type_tax_use','=','purchase'), ('tipo_factor','=',tax.get('@TipoFactor')), ('amount', '=', tasa), ('company_id','=',self.env.user.company_id.id)],limit=1)
                         if not tax_exist:
                             raise Warning("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
                         tax_ids.append(tax_exist.id)
